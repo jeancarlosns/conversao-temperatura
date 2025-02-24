@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: seu-usuario/conversao-temperatura:latest
+          image: jeancarlosns/conversao-temperatura:latest
           ports:
             - containerPort: 8080
           env:

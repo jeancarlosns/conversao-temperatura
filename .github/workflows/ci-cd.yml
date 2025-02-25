@@ -5,7 +5,7 @@ on:
     branches:
       - master
   pull_request:
-    types: [opened, labeled, closed, synchronized, unlabeled]
+    types: [opened, labeled, closed, synchronize, unlabeled]
 
 jobs:
   build:
@@ -44,6 +44,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
+<<<<<<< Updated upstream
       - name: Instalar Kubectl
         run: |
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -86,3 +87,6 @@ jobs:
       - name: Destruir Ambiente de Preview
         run: |
           kubectl delete namespace preview-${{ github.head_ref }} || true
+=======
+      - name: Checkout do Código
+>>>>>>> Stashed changes

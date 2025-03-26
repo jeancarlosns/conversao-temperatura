@@ -44,6 +44,9 @@ jobs:
     if: github.ref == 'refs/heads/master'
 
     steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
       - name: Instalar Kubectl
         run: |
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -61,6 +64,9 @@ jobs:
     if: github.event.pull_request.head.repo.full_name == github.repository && contains(github.event.pull_request.labels.*.name, 'preview')
 
     steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
       - name: Instalar Kubectl
         run: |
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -77,6 +83,9 @@ jobs:
     if: github.event.action == 'closed' || github.event.action == 'unlabeled' || github.event.action == 'merged'
 
     steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
       - name: Instalar Kubectl
         run: |
           curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -86,4 +95,3 @@ jobs:
       - name: Destruir Ambiente de Preview
         run: |
           kubectl delete namespace preview-${{ github.head_ref }} || true
-          

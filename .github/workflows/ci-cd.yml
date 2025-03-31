@@ -25,6 +25,7 @@ jobs:
           file: ./src/Dockerfile
           push: true
           tags: |
-            teste-tempotelecom:v1
-            teste-tempotelecom:latest
+            ${{ secrets.DOCKER_USERNAME }}/teste-tempotelecom:v1
+            ${{ secrets.DOCKER_USERNAME }}/teste-tempotelecom:latest
+          outputs: type=image
 

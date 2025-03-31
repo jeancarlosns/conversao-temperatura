@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8080
 
 # Comando para rodar a aplicação
-CMD ["npm", "start"]
+CMD ["npm", "server..js"]

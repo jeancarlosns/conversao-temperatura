@@ -24,5 +24,7 @@ jobs:
           context: ./src
           file: ./src/Dockerfile
           push: true
-          tags: teste-tempotelecom:v1
+          tags: |
+            teste-tempotelecom:v1
+            teste-tempotelecom:latest
 
